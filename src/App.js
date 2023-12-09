@@ -25,7 +25,7 @@ function App() {
   return (
     <>
       <Container>
-        <h1 className="mt-4">Books</h1>
+        <h1 className="mt-4">BookShelF</h1>
         <BookShelf books={books} addBook={addBook} />
       </Container>
     </>
