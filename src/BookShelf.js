@@ -15,12 +15,6 @@ function BookShelf({ books, addBook }) {
       </Row>
 
       <Card>
-      <Button onClick={() => addBook({ id: Date.now(), title: 'New Book', author: 'Unknown' })} variant="primary">
-        Add New Book
-      </Button>
-      </Card>
-
-      <Card>
       {/* booksの数を表示*/}
       <p className='mt-3'>Number of books: {books.length}</p>
       </Card>

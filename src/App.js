@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import BookShelf from "./BookShelf";
 import { Container, Row, Col, Button } from "react-bootstrap";
+import Book from "./Book";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -17,16 +18,23 @@ function App() {
     { id: 9, title: "Gone with the Wind", author: "Margaret Mitchell" },
     { id: 10, title: "The Fault in Our Stars", author: "John Green" },
   ]);
+  const [book, setBook] = useState("");
 
-  const addBook = (newBook) => {
-    setBooks([...books, newBook]);
-  };
+
+  
+
 
   return (
     <>
       <Container>
-        <h1 className="mt-4">BookShelF</h1>
-        <BookShelf books={books} addBook={addBook} />
+        <Row>
+          <Col>
+            {/* 真ん中に寄せる */}
+            <h1 className="text-center">React Bookshelf</h1>
+          </Col>
+        </Row>
+        <BookShelf books={books} addBook={books} />
+      
       </Container>
     </>
   );
