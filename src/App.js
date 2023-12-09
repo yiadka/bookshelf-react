@@ -1,28 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import BookShelf from "./BookShelf";
+import { Container, Row, Col, Button } from "react-bootstrap";
 
-export default function App() {
-  const [count, setCount] = useState(0);
+import "bootstrap/dist/css/bootstrap.min.css";
+
+function App() {
+  const [books, setBooks] = useState([
+    { id: 1, title: "The Hunger Games", author: "Suzanne Collins" },
+    { id: 2, title: "Harry Potter and the Order of the Phoenix", author: "J.K. Rowling" },
+    { id: 3, title: "To Kill a Mockingbird", author: "Harper Lee" },
+    { id: 4, title: "Pride and Prejudice", author: "Jane Austen" },
+    { id: 5, title: "Twilight", author: "Stephenie Meyer" },
+  ]);
+
+  const addBook = (newBook) => {
+    setBooks([...books, newBook]);
+  };
 
   return (
     <>
-    <div>
-      <h1>Count: {count}</h1>
-      <button 
-        onClick={() => setCount(count + 1)}
-      >
-        increment
-      </button>
-      <button 
-        onClick={() => setCount(count - 1)}
-      >
-        decrement
-      </button>
-      <button 
-        onClick={() => setCount(count * 2)}
-      >
-        kakezan
-      </button>
-    </div>
+      <Container>
+        <h1 className="mt-4">Books</h1>
+        <BookShelf books={books} addBook={addBook} />
+      </Container>
     </>
   );
 }
+
+export default App;
